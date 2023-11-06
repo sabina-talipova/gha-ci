@@ -691,7 +691,7 @@ jobs:
           EOF
           elif [[ "${{ matrix.db }}" =~ mariadb ]]; then
             cat << EOF > .env
-          SS_DATABASE_SERVER="localhost"
+          SS_DATABASE_SERVER="127.0.0.1"
           SS_DATABASE_USERNAME="root"
           SS_DATABASE_PASSWORD="root"
           EOF
