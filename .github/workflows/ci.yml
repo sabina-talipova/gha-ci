@@ -120,6 +120,15 @@ jobs:
     services:
       # It takes around 9 seconds per extra database added, so this is something that could be optimised later
       # to only add the database that's required for the job
+      mariadb:
+        image: mariadb
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: SS_mysite
+        ports:
+          - 3311:3310
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=10
       mysql57:
         image: mysql:5.7
         env:
