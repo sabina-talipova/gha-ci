@@ -148,7 +148,9 @@ jobs:
       mariadb:
         image: mariadb
         env:
+          MARIADB_HOST: 127.0.0.1
           MARIADB_ROOT_PASSWORD: root
+          MARIADB_DATABASE: SS_mysite
         ports:
           - 3311:3306
         options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=10s --health-timeout=5s --health-retries=10
