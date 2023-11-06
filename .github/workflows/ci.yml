@@ -123,9 +123,7 @@ jobs:
       mariadb:
         image: mariadb
         env:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: SS_mysite
+          MARIADB_ROOT_PASSWORD: root
         ports:
           - 3311:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=10
