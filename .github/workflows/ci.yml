@@ -689,6 +689,12 @@ jobs:
           SS_DATABASE_PASSWORD=""
           SS_SQLITE_DATABASE_PATH=":memory:"
           EOF
+          elif [[ "${{ matrix.db }}" =~ mariadb ]]; then
+            cat << EOF > .env
+          SS_DATABASE_SERVER="localhost"
+          SS_DATABASE_USERNAME="root"
+          SS_DATABASE_PASSWORD="root"
+          EOF
           fi
           cat << EOF >> .env
           SS_ENVIRONMENT_TYPE="dev"
