@@ -120,13 +120,6 @@ jobs:
     services:
       # It takes around 9 seconds per extra database added, so this is something that could be optimised later
       # to only add the database that's required for the job
-      mariadb:
-        image: mariadb
-        env:
-          MARIADB_ROOT_PASSWORD: root
-        ports:
-          - 3311:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=10
       mysql57:
         image: mysql:5.7
         env:
@@ -152,6 +145,12 @@ jobs:
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=10
         ports:
           - 5432:5432
+      mariadb:
+        image: mariadb
+        env:
+          MARIADB_ROOT_PASSWORD: root
+        ports:
+          - 3311:3306
 
     env:
       artifacts_name: ${{ matrix.name }}
